@@ -1,47 +1,100 @@
-#outer-dropzone {
-    height: 140px;
+*
+{
+    box-sizing: border-box;
 }
 
-#inner-dropzone {
-    height: 80px;
+body
+{
+    background: url('../images/background.jpg');
 }
 
-.dropzone {
-    background-color: #ccc;
-    border: dashed 4px transparent;
-    border-radius: 4px;
-    margin: 10px auto 30px;
-    padding: 10px;
-    width: 80%;
-    transition: background-color 0.3s;
+.dragNumber
+{
+    border: 4px dotted cyan;
+    margin-bottom: 1em;
+    border-radius: 50%;
+    width: 6em;
+    height: 6em;
+    background: midnightblue;
+}
+.dragNumber p
+{
+    float:left;
+    width:100%;
+    padding-top:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+    text-align:center;
+    color:white;
+    font-size: 1.7em;
 }
 
-.drop-active {
-    border-color: #aaa;
+.dropNumber
+{
+    border: 4px dotted cyan;
+    margin-bottom: 1em;
+    width: 6em;
+    height: 6em;
+    background: midnightblue;
+
 }
 
-.drop-target {
-    background-color: #29e;
-    border-color: #fff;
-    border-style: solid;
+.dropNumber p
+{
+    float:left;
+    width:100%;
+    padding-top:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+    text-align:center;
+    color:white;
+    font-size: 1.7em;
 }
 
-.drag-drop {
-    display: inline-block;
-    min-width: 40px;
-    padding: 2em 0.5em;
-
-    color: #fff;
-    background-color: #29e;
-    border: solid 2px #fff;
-
-    -webkit-transform: translate(0px, 0px);
-    transform: translate(0px, 0px);
-
-    transition: background-color 0.3s;
+.highlight
+{
+    background-color: green;
+}
+#left,#right,#main
+{
+    vertical-align: middle;
+    margin: 0 auto;
+    padding: 1em;
+}
+#bottom
+{
+    padding: 1em;
+    /*flex: 100%;*/
 }
 
-.drag-drop.can-drop {
-    color: #000;
-    background-color: #4e4;
+img
+{
+    width: 100%;
+}
+
+#wrapper
+{
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+    width: 800px;
+    margin: 0 auto;
+    background-color: RGBA(0,0,0,0.75);
+}
+
+@media all and (min-width: 600px)
+{
+
+}
+@media all and (min-width: 800px) {
+    #wrapper    { flex: 6 0; }
+    #left { order: 1; }
+    #main    { order: 2; }
+    #right { order: 3; }
+    #bottom  { order: 4; }
+}
+
+body {
+    padding: 2em;
 }
