@@ -1,25 +1,54 @@
-*
-{
-    box-sizing: border-box;
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-body
-{
-    background: url('../images/background.jpg');
+.wrapper > * {
+    padding: 10px;
+    flex: 1 100%;
 }
 
-.dragNumber
-{
-    border: 4px dotted cyan;
-    margin-bottom: 1em;
-    border-radius: 50%;
-    width: 6em;
-    height: 6em;
-    background: midnightblue;
+.header {
+    background: tomato;
 }
-.dragNumber p
+
+.bottom {
+    background: lightgreen;
+}
+
+.main {
+    text-align: center;
+    background: deepskyblue;
+}
+
+.aside-left {
+    background: gold;
+}
+
+.aside-right {
+    background: hotpink;
+}
+
+.drag-number
+ {
+     position: relative;
+     width: 50%;
+     border: 4px dotted cyan;
+     margin: 0 auto 1em;
+     background: midnightblue;
+     border-radius: 50%;
+     min-width: 2em;
+     max-width: 6em;
+ }
+
+
+.drag-number p
 {
-    float:left;
     width:100%;
     padding-top:50%;
     line-height:1em;
@@ -29,17 +58,23 @@ body
     font-size: 1.7em;
 }
 
-.dropNumber
+.drop-number
 {
+    position: relative;
+    width: 50%;
     border: 4px dotted cyan;
-    margin-bottom: 1em;
-    width: 6em;
-    height: 6em;
+    margin: 0 auto 1em;
     background: midnightblue;
-
+    min-width: 3em;
+    max-width: 6em;
+}
+.drop-number:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
 }
 
-.dropNumber p
+.drop-number p
 {
     float:left;
     width:100%;
@@ -55,46 +90,37 @@ body
 {
     background-color: green;
 }
-#left,#right,#main
-{
-    vertical-align: middle;
-    margin: 0 auto;
-    padding: 1em;
-}
-#bottom
-{
-    padding: 1em;
-    /*flex: 100%;*/
-}
+
 
 img
 {
     width: 100%;
+    max-width: 400px;
 }
 
-#wrapper
-{
-    display: flex;
-    flex-flow: row wrap;
-    font-weight: bold;
-    text-align: center;
-    width: 800px;
-    margin: 0 auto;
-    background-color: RGBA(0,0,0,0.75);
+@media all and (orientation: portrait) {
+    .aside { flex: 1 auto 100%; display: inline-flex;}
+    img{width: 50%;}
+    .drag-number{width: 3em; height: 3em; }
+    .drop-number{width: 3em; height: 3em; }
 }
 
-@media all and (min-width: 600px)
-{
 
-}
-@media all and (min-width: 800px) {
-    #wrapper    { flex: 6 0; }
-    #left { order: 1; }
-    #main    { order: 2; }
-    #right { order: 3; }
-    #bottom  { order: 4; }
+
+@media all and (orientation: landscape) {
+    .aside{ flex: 1 auto;}
+    .main    { flex: 2 0; }
+    .aside-left { order: 1; }
+    .main    { order: 2; }
+    .aside-right { order: 3; }
+    .bottom  { order: 4; }
+    .drag-number{width: 4em; height: 4em; }
+    .drop-number{width: 4em; height: 4em; }
 }
 
-body {
-    padding: 2em;
+
+@media all and (orientation: landscape) and (max-width: 600px) {
+    .aside{flex: 1 15%;}
+    .drag-number{width: 2em; height: 2em; display: inline-block}
+    .drop-number{width: 2em; height: 2em; display: inline-block}
 }

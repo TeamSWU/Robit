@@ -1,67 +1,64 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Робит</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 </head>
+
+
 <body>
-<div id="wrapper">
-    <div id="left" class="aside">
-        <div id="circle" class="dropnumber">
-        </div>
-
-        <div id="square" class="dropnumber">
-        </div>
-
-        <div id="rectangle" class="dropnumber">
-        </div>
-
-        <div id="triangle" class="dropnumber">
-        </div>
-
-    </div>
-
-    <div id="main">
+<div class="wrapper">
+    <header class="header">Ниво 1</header>
+    <article class="main">
         <img src="images/Robit.png" class="center-block"/>
-    </div>
-
-
-    <div id="right" class="aside">
-        <div class="dragNumber">
-            <p>1</p>
+    </article>
+    <aside class="aside aside-left">
+        <div id="circle" class="drop-number">
         </div>
 
-        <div class="dragNumber">
-            <p>2</p>
-        </div>
-        <div class="dragNumber">
-            <p>3</p>
+        <div id="square" class="drop-number">
         </div>
 
-        <div class="dragNumber">
-            <p>4</p>
+        <div id="rectangle" class="drop-number">
         </div>
-        <div class="dragNumber">
-            <p>5</p>
+
+        <div id="triangle" class="drop-number">
         </div>
-    </div>
-    <div id="bottom"><button id="proceedButton" class="btn btn-success">Продължи</button></div>
+    </aside>
+    <aside class="aside aside-right">
+        <div class="drag-number">
+        <p>1</p>
+        </div>
+
+        <div class="drag-number">
+        <p>2</p>
+        </div>
+        <div class="drag-number">
+        <p>3</p>
+        </div>
+
+        <div class="drag-number">
+        <p>4</p>
+        </div>
+        <div class="drag-number">
+        <p>5</p>
+        </div>
+
+    </aside>
+    <div class="bottom"><button id="proceed-button" class="button">Продължи</button></div>
 </div>
 </body>
 </html>
 
 <script src="libraries/jquery-1.11.3.min.js"></script>
-<script src="libraries/bootstrap.min.js"></script>
 <script src="libraries/jquerypp.js"></script>
 <script>
-    $('.dragNumber').on('draginit', function (ev, drag) {
+    $('.drag-number').on('draginit', function (ev, drag) {
         drag.ghost();
     });
 
-    $('.dropNumber').on({
+    $('.drop-number').on({
         'dropover': function () {
             $(this).addClass('highlight');
         },
@@ -74,7 +71,7 @@
         }
     });
 
-    $('#proceedButton').click(function () {
+    $('#proceed-button').click(function () {
         if ($('#circle > p').html() == 1) {
             window.alert("pezi");
         } else {
