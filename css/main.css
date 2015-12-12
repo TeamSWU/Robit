@@ -22,13 +22,12 @@ body
 
 .header{
     margin-bottom: 0.5em;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: gold;
 }
-
-.aside-left,.main
+.bottom
 {
-    margin-right: 0.5em;
+    margin-top: 0.5em;
 }
 
 .main,.aside,.bottom,.header {
@@ -37,10 +36,6 @@ body
     box-shadow:0 1px 4px rgba(0,255,255, 0.5), 0 0 40px rgba(0,255,255, 0.3) inset;
 }
 
-.bottom
-{
-    margin-top: 0.5em;
-}
 
 .button
 {
@@ -122,9 +117,12 @@ img
 
 @media all and (orientation: portrait) {
     .aside { flex: 1 auto 100%; display: inline-flex;}
+    .aside-left,.main
+    {
+        margin-bottom: 0.5em;
+    }
+    .drag-number,.drop-number{width: 3em; height: 3em; margin: 0 auto;}
     img{width: 50%;}
-    .drag-number{width: 3em; height: 3em; }
-    .drop-number{width: 3em; height: 3em; }
 }
 
 
@@ -136,13 +134,16 @@ img
     .main    { order: 2; }
     .aside-right { order: 3; }
     .bottom  { order: 4; }
-    .drag-number{width: 4em; height: 4em; }
-    .drop-number{width: 4em; height: 4em; }
+    .drag-number,.drop-number{width: 4em; height: 4em; }
+
+    .aside-left,.main
+    {
+        margin-right: 0.5em;
+    }
 }
 
 
 @media all and (orientation: landscape) and (max-width: 600px) {
     .aside{flex: 1 15%;}
-    .drag-number{width: 2em; height: 2em; display: inline-block}
-    .drop-number{width: 2em; height: 2em; display: inline-block}
+    .drag-number,.drop-number{width: 4em; height: 4em; display: inline-block; margin: 0;}
 }
