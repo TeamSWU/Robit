@@ -69,7 +69,8 @@ body
      border-radius: 50%;
      min-width: 2em;
      max-width: 6em;
- }
+    cursor: pointer;
+}
 
 
 .drag-number p
@@ -93,7 +94,6 @@ body
     min-width: 3em;
     max-width: 6em;
 }
-
 
 .drop-number p
 {
@@ -139,10 +139,12 @@ body
     width: 100%;
     max-width: 400px;
 }
-.bottom>img
+.bottom>input[type=image]
 {
-    max-height: 2em;
+    border: 0;
+    background: transparent;
     margin: auto 2em;
+    max-height: 2em;
 }
 
 @media all and (orientation: portrait) {
