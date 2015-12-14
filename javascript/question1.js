@@ -35,20 +35,46 @@ $('#proceed-button').click(function () {
         studentScore += 2;
     }
 
+
+
     if($('#circle > p').html() != 4) {
-        humane.log("Аз съм кръг");
+        setTimeout(function() {
+            humane.log("Аз съм кръг");
+
+            $("#circle-sound").trigger('load');
+            $("#circle-sound").trigger('play');
+        }, 3000);
+
     }
 
     if($('#square > p').html() != 4) {
-        humane.log("Аз съм квадрат, имам 4 равни страни и 4 ъгъла.");
+        setTimeout(function(){
+            humane.log("Аз съм квадрат, имам 4 равни страни и 4 ъгъла.");
+
+            $("#square-sound").trigger('load');
+            $("#square-sound").trigger('play');
+        }, 10000);
+
     }
 
     if($('#rectangle > p').html() != 4) {
-        humane.log("Аз съм правоъгълник, имам 4 страни и 4 ъгъла.");
+        setTimeout(function() {
+            humane.log("Аз съм правоъгълник, имам 4 страни и 4 ъгъла.");
+
+            $("#rectangle-sound").trigger('load');
+            $("#square-sound").trigger('play');
+        }, 8000)
+
     }
 
     if($('#triangle > p').html() != 3) {
-        humane.log("Аз съм триъгълник, имам 3 страни и 3 ъгъла.");
+        setTimeout(function() {
+            humane.log("Аз съм триъгълник, имам 3 страни и 3 ъгъла.");
+
+            $("#triangle-sound").trigger('load');
+            $("#square-sound").trigger('play');
+        }, 8000);
+
     }
 
     localStorage.setItem('studentScore', JSON.stringify(studentScore));
@@ -60,3 +86,4 @@ $('#proceed-button').click(function () {
 
 });
 
+function isPlaying(audelem) { return !audelem.paused; }
