@@ -28,6 +28,7 @@ body
 .bottom
 {
     margin-top: 0.5em;
+    padding: 0.1em;
 }
 
 .main,.aside,.bottom,.header {
@@ -35,7 +36,6 @@ body
     background-color: RGBA(50,50,50,0.75);
     box-shadow:0 1px 4px rgba(0,255,255, 0.5), 0 0 40px rgba(0,255,255, 0.3) inset;
 }
-
 
 .button
 {
@@ -91,11 +91,7 @@ body
     min-width: 3em;
     max-width: 6em;
 }
-.drop-number:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-}
+
 
 .drop-number p
 {
@@ -114,11 +110,37 @@ body
     background-color: green;
 }
 
+#circle,#square,#rectangle,#triangle
+{
+    background-size: 100% 100%;
+}
 
-img
+#circle
+{
+    background-image: url("../images/circle.png");
+}
+#square
+{
+    background-image: url("../images/square.png") ;
+}
+#rectangle
+{
+    background-image: url("../images/rectangle.png");
+}
+#triangle
+{
+    background-image: url("../images/triangle.png");
+}
+
+.main>img
 {
     width: 100%;
     max-width: 400px;
+}
+.bottom>img
+{
+    max-height: 2em;
+    margin: auto 2em;
 }
 
 @media all and (orientation: portrait) {
@@ -128,7 +150,7 @@ img
         margin-bottom: 0.5em;
     }
     .drag-number,.drop-number{width: 3em; height: 3em; margin: 0 auto;}
-    img{width: 50%;}
+    .main>img{width: 50%;}
 }
 
 
