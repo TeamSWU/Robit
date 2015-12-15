@@ -1,0 +1,41 @@
+.container
+{
+    display: inline-flex;
+    vertical-align: middle;
+    margin: auto auto;
+    padding: 0.5em;
+}
+
+.main
+{
+    flex: 6 0;
+}
+.equation
+{
+    font-size: 1.7em;
+    color: white;
+    margin: auto 0.5em auto auto;
+}
+
+.aside-right
+{
+}
+
+.drop-number
+{
+    margin: 0;
+    height: 3em;
+    width: 3em;
+}
+
+@media all and (orientation: portrait) {
+    .container
+    {
+        padding: 0 0 0.5em 0;
+    }
+    .main
+    {
+        overflow: auto;
+        max-height: 300px;
+    }
+}

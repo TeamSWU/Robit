@@ -112,28 +112,6 @@ body
     background-color: green;
 }
 
-#circle,#square,#rectangle,#triangle
-{
-    background-size: 100% 100%;
-}
-
-#circle
-{
-    background-image: url("../images/circle.png");
-}
-#square
-{
-    background-image: url("../images/square.png") ;
-}
-#rectangle
-{
-    background-image: url("../images/rectangle.png");
-}
-#triangle
-{
-    background-image: url("../images/triangle.png");
-}
-
 .main>img
 {
     width: 100%;
