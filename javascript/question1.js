@@ -35,7 +35,14 @@ $('#proceed-button').click(function () {
         studentScore += 2;
     }
 
+    $(function(){
+        $('#proceed-button').click(function(){
+            if(this.id == 'proceed-button'){
+                window.location = 'question2.html'
+            }
 
+        });
+    });
 
     if($('#circle > p').html() != 4) {
         setTimeout(function() {
@@ -43,37 +50,37 @@ $('#proceed-button').click(function () {
 
             $("#circle-sound").trigger('load');
             $("#circle-sound").trigger('play');
-        }, 3000);
+        }, 200);
 
     }
 
-    if($('#square > p').html() != 4) {
+    else if($('#square > p').html() != 4) {
         setTimeout(function(){
             humane.log("Аз съм квадрат, имам 4 равни страни и 4 ъгъла.");
 
             $("#square-sound").trigger('load');
             $("#square-sound").trigger('play');
-        }, 10000);
+        }, 700);
 
     }
 
-    if($('#rectangle > p').html() != 4) {
+    else if($('#rectangle > p').html() != 4) {
         setTimeout(function() {
             humane.log("Аз съм правоъгълник, имам 4 страни и 4 ъгъла.");
 
             $("#rectangle-sound").trigger('load');
-            $("#square-sound").trigger('play');
-        }, 8000)
+            $("#rectangle-sound").trigger('play');
+        }, 700)
 
     }
 
-    if($('#triangle > p').html() != 3) {
+    else if($('#triangle > p').html() != 3) {
         setTimeout(function() {
             humane.log("Аз съм триъгълник, имам 3 страни и 3 ъгъла.");
 
             $("#triangle-sound").trigger('load');
-            $("#square-sound").trigger('play');
-        }, 8000);
+            $("#triangle-sound").trigger('play');
+        }, 300);
 
     }
 
