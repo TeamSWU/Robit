@@ -14,14 +14,10 @@
 {
     font-size: 1.7em;
     color: white;
-    margin: auto 0.5em auto auto;
+    margin: auto 0.3em;
 }
 
-.aside-right
-{
-}
-
-.drop-number
+.drop-number,.drop-sign
 {
     margin: 0;
     height: 3em;
