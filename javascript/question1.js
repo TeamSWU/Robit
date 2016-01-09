@@ -17,7 +17,7 @@ $('.drop-number').on({
 
 var studentScore;
 
-$('#proceed-button').click(function () {
+$('#proceed-button').click(function(){
     studentScore = 0;
 
     if ($('#circle > p').html() == 4) {
@@ -25,33 +25,28 @@ $('#proceed-button').click(function () {
     }
 
     if( $('#square > p').html() == 4) {
-       studentScore += 2;
+        studentScore += 2;
     }
 
     if( $('#rectangle > p').html() == 4) {
-       studentScore += 2;
+        studentScore += 2;
     }
     if( $('#triangle > p').html() == 3) {
         studentScore += 2;
     }
+    if( studentScore >= 4){
+        window.location.href = 'question2.html'
+    }
+});
 
-    $(function(){
-        $('#proceed-button').click(function(){
-            if(this.id == 'proceed-button'){
-                window.location = 'question2.html'
-            }
-
-        });
-    });
-
-    if($('#circle > p').html() != 4) {
+$('#check-button').click(function () {
+ if($('#circle > p').html() != 4) {
         setTimeout(function() {
             humane.log("Аз съм кръг");
 
             $("#circle-sound").trigger('load');
             $("#circle-sound").trigger('play');
         }, 200);
-
     }
 
     else if($('#square > p').html() != 4) {
@@ -61,7 +56,6 @@ $('#proceed-button').click(function () {
             $("#square-sound").trigger('load');
             $("#square-sound").trigger('play');
         }, 700);
-
     }
 
     else if($('#rectangle > p').html() != 4) {
@@ -71,7 +65,6 @@ $('#proceed-button').click(function () {
             $("#rectangle-sound").trigger('load');
             $("#rectangle-sound").trigger('play');
         }, 700)
-
     }
 
     else if($('#triangle > p').html() != 3) {
@@ -81,16 +74,8 @@ $('#proceed-button').click(function () {
             $("#triangle-sound").trigger('load');
             $("#triangle-sound").trigger('play');
         }, 300);
-
     }
 
     localStorage.setItem('studentScore', JSON.stringify(studentScore));
-
-    if(studentScore >= 4) {
-        //window.location.href = 'question2.html';
-        // default: false
-    }
-
 });
-
 function isPlaying(audelem) { return !audelem.paused; }

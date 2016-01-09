@@ -65,15 +65,12 @@ $('#proceed-button').click(function () {
         studentScore += 2;
     }
 
-    $(function(){
-        $('#proceed-button').click(function(){
-            if(this.id == 'proceed-button'){
-                window.location = 'question2.html'
-            }
+    //if( studentScore >= 10){
+    window.location = 'question3.html'
+    //}
+});
 
-        });
-    });
-
+$('#check-button').click(function () {
     if($('#answer-1 > p').html() != 5) {
         humane.log("WRONG ANSWER");
     }
@@ -119,14 +116,17 @@ $('#proceed-button').click(function () {
     else if($('#answer-12 > p').html() != 4) {
         humane.log("WRONG ANSWER");
     }
-
-
-    localStorage.setItem('studentScore', JSON.stringify(studentScore));
-
-    if(studentScore >= 4) {
-        //window.location.href = 'question2.html';
-        // default: false
-    }
-
 });
-function isPlaying(audelem) { return !audelem.paused; }
+
+localStorage.setItem('studentScore', JSON.stringify(studentScore));
+
+$(document).ready(function(){
+    $('#back-button').click(function(){
+        parent.history.back();
+        return false;
+    });
+});
+
+function isPlaying(audelem) {
+    return !audelem.paused;
+}
