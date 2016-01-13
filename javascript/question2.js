@@ -157,6 +157,27 @@ function getBoxNum(boxNum) {
     return $("#" + boxNum).html();
 }
 
+$("#back-button").click(function() {
+    sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
+
+    sessionStorage.setItem('answer-1', JSON.stringify(getBoxNum("answer-1")));
+    sessionStorage.setItem('answer-2', JSON.stringify(getBoxNum("answer-2")));
+    sessionStorage.setItem('answer-3', JSON.stringify(getBoxNum("answer-3")));
+    sessionStorage.setItem('answer-4', JSON.stringify(getBoxNum("answer-4")));
+    sessionStorage.setItem('answer-5', JSON.stringify(getBoxNum("answer-5")));
+    sessionStorage.setItem('answer-6', JSON.stringify(getBoxNum("answer-6")));
+    sessionStorage.setItem('answer-7', JSON.stringify(getBoxNum("answer-7")));
+    sessionStorage.setItem('answer-8', JSON.stringify(getBoxNum("answer-8")));
+    sessionStorage.setItem('answer-9', JSON.stringify(getBoxNum("answer-9")));
+    sessionStorage.setItem('answer-10', JSON.stringify(getBoxNum("answer-10")));
+    sessionStorage.setItem('answer-11', JSON.stringify(getBoxNum("answer-11")));
+    sessionStorage.setItem('answer-12', JSON.stringify(getBoxNum("answer-12")));
+    sessionStorage.setItem('answer-13', JSON.stringify(getBoxNum("answer-13")));
+    sessionStorage.setItem('answer-14', JSON.stringify(getBoxNum("answer-14")));
+    sessionStorage.setItem('answer-15', JSON.stringify(getBoxNum("answer-15")));
+    sessionStorage.setItem('answer-16', JSON.stringify(getBoxNum("answer-16")));
+});
+
 (function ()
     {
         var patt = new RegExp("<\s*p[^>]*>([^<]*)<\s*\/\s*p\s*>");
