@@ -18,7 +18,7 @@ $('.drop-number').on({
 var studentScore;
 
 $('#proceed-button').click(function () {
-    studentScore = localStorage.getItem('studentScore');
+    studentScore = Number(sessionStorage.getItem('studentScore'));
 
     addPoints(1, 5);
     addPoints(2, 3);
@@ -33,6 +33,7 @@ $('#proceed-button').click(function () {
     addPoints(11, 3);
     addPoints(12, 4);
 
+    sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
     //if( studentScore >= 10){
     window.location = 'question3.html';
     //}
@@ -117,7 +118,7 @@ function isPlaying(audelem) {
 
 function addPoints(questionNumber, answerNumber)
 {
-    if ($('#answer'+questionNumber+' > p').html() == answerNumber) {
+    if ($('#answer-' + questionNumber + ' > p').html() == answerNumber) {
         studentScore += 2;
     }
 }

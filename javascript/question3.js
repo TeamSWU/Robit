@@ -18,43 +18,33 @@ $('.drop-sign').on({
 var studentScore;
 
 $('#proceed-button').click(function () {
-    studentScore = sessionStorage.getItem('studentScore');
+    studentScore = Number(sessionStorage.getItem('studentScore'));
 
-    if ($('#answer1 > p').html().replace('&lt','<').localeCompare('<')) {
-        studentScore += 2;
-    }
-    if ($('#answer2 > p').html().replace('&lt','<').localeCompare('<')) {
-        studentScore += 2;
-    }
-    if ($('#answer3 > p').html().replace('&lt','<').localeCompare('<')) {
-        studentScore += 2;
-    }
-    if ($('#answer4 > p').html().replace('&lt','<').localeCompare('<')) {
-        studentScore += 2;
-    }
-    if ($('#answer5 > p').html().replace('&lt','<').localeCompare('<')) {
-        studentScore += 2;
-    }
-    if ($('#answer6 > p').html().replace('&lt','<').localeCompare('<')) {
-        studentScore += 2;
-    }
-    if ($('#answer7 > p').html().replace('&lt','<').localeCompare('<')) {
-        studentScore += 2;
-    }
-    if ($('#answer8 > p').html().replace('&lt','<').localeCompare('<')) {
-        studentScore += 2;
-    }
+    addPoints(1, '>');
+    addPoints(2, '<');
+    addPoints(3, '<');
+    addPoints(4, '>');
+    addPoints(5, '<');
+    addPoints(6, '>');
+    addPoints(7, '=');
+    addPoints(8, '<');
 
     //if( studentScore >= 10){
-    window.location = 'question3.html'
+    //window.location = 'question3.html';
     //}
+    sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
 });
 
 $('#check-button').click(function () {
-    alert($('#answer1 > p').html());
+    addPoints(1, '>');
+    addPoints(2, '<');
+    addPoints(3, '<');
+    addPoints(4, '>');
+    addPoints(5, '<');
+    addPoints(6, '>');
+    addPoints(7, '=');
+    addPoints(8, '<');
 });
-
-sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
 
 $(document).ready(function(){
     $('#back-button').click(function(){
@@ -66,3 +56,31 @@ $(document).ready(function(){
 function isPlaying(audelem) {
     return !audelem.paused;
 }
+
+addPoints(questionNumber, sign)
+{
+    var encodedSign = sign;
+
+    if(sign == '<')
+    {
+        encodedSign = '&lt;';
+    }
+
+    if(sign == '>')
+    {
+        encodedSign = '&gt;';
+    }
+
+    if($('#answer-' + questionNumber + ' > p').html() == encodedSign);
+    {
+
+        studentScore += 2;
+    }
+    alert(encodedSign);
+}
+
+(function ()
+    {
+        document.getElementById('points').innerHTML = $.parseJSON(sessionStorage.getItem('studentScore'));
+    }
+)();
