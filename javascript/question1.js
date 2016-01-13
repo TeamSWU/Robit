@@ -20,10 +20,10 @@ var studentScore;
 $('#proceed-button').click(function(){
     studentScore = 0;
 
-    addPints("circle", 4);
-    addPints("square", 4);
-    addPints("rectangle", 4);
-    addPints("triangle", 3);
+    addPoints("circle", 4);
+    addPoints("square", 4);
+    addPoints("rectangle", 4);
+    addPoints("triangle", 3);
 
     if( studentScore >= 4){
         window.location.href = 'question2.html'
@@ -51,7 +51,7 @@ $('#check-button').click(function () {
 });
 function isPlaying(audelem) { return !audelem.paused; }
 
-function addPints(figureName, answerNumber)
+function addPoints(figureName, answerNumber)
 {
     if ($('#' + figureName + ' > p').html() == answerNumber) {
         studentScore += 2;

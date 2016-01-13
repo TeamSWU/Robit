@@ -125,6 +125,11 @@ body
     max-height: 2em;
 }
 
+.score
+{
+    float: right
+}
+
 @media all and (orientation: portrait) {
     .aside { flex: 1 auto 100%; display: inline-flex;}
     .aside-left,.main

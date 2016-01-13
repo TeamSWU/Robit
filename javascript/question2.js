@@ -88,12 +88,15 @@ $('#check-button').click(function () {
     else if(isWrong(13, 1)) {
         playNotification();
     }
+
     else if(isWrong(14, 3)) {
         playNotification();
     }
+
     else if(isWrong(15, 3)) {
         playNotification();
     }
+
     else if(isWrong(16, 1)) {
         playNotification();
     }
@@ -131,3 +134,8 @@ function isWrong(questionNumber, answerNumber)
         return true;
     }
 }
+(function ()
+    {
+        document.getElementById('points').innerHTML = localStorage.getItem('studentScore');
+    }
+)();
