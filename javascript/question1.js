@@ -15,7 +15,7 @@ $('.drop-number').on({
     }
 });
 
-var studentScore;
+var studentScore, squareNum, triangleNum, circleNum, rectangleNum;
 
 $('#proceed-button').click(function(){
     studentScore = 0;
@@ -30,6 +30,10 @@ $('#proceed-button').click(function(){
     }
 
     sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
+    sessionStorage.setItem('squareNum', JSON.stringify(getFigureNum("square")));
+    sessionStorage.setItem('triangleNum', JSON.stringify(getFigureNum("triangle")));
+    sessionStorage.setItem('circleNum', JSON.stringify(getFigureNum("circle")));
+    sessionStorage.setItem('rectangleNum', JSON.stringify(getFigureNum("rectangle")));
 });
 
 $('#check-button').click(function () {
@@ -70,6 +74,10 @@ function playNotification(figureName, message, duration)
         }, duration);
 }
 
+function getFigureNum(figureName) {
+    return $("#" + figureName).html();
+}
+
 function isWrong(figureName, answerNumber)
 {
     if($('#' + figureName + ' > p').html() != answerNumber)
@@ -77,3 +85,21 @@ function isWrong(figureName, answerNumber)
         return true;
     }
 }
+
+(function ()
+    {
+        var patt = new RegExp("<\s*p[^>]*>([^<]*)<\s*\/\s*p\s*>");
+
+        squareNum = sessionStorage.getItem("squareNum");
+        $("#square").html(patt.exec(squareNum));
+
+        rectangleNum = sessionStorage.getItem("rectangleNum");
+        $("#rectangle").html(patt.exec(rectangleNum));
+
+        circleNum = sessionStorage.getItem("circleNum");
+        $("#circle").html(patt.exec(circleNum));
+
+        triangleNum = sessionStorage.getItem("triangleNum");
+        $("#triangle").html(patt.exec(triangleNum));
+    }
+)();
