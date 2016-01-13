@@ -41,61 +41,61 @@ $('#proceed-button').click(function () {
 $('#check-button').click(function () {
     
     if(isWrong(1, 5)) {
-        playNotfication();
+        playNotification();
     }
 
     else if(isWrong(2, 3)) {
-        playNotfication();
+        playNotification();
     }
 
     else if(isWrong(3, 5)) {
-        playNotfication();
+        playNotification();
     }
 
     else if(isWrong(4, 4)) {
-        playNotfication();
+        playNotification();
     }
     else if(isWrong(5, 1)) {
-        playNotfication()
+        playNotification()
     }
 
     else if(isWrong(6, 1)) {
-        playNotfication();
+        playNotification();
     }
 
     else if(isWrong(7, 2)) {
-        playNotfication();
+        playNotification();
     }
 
     else if(isWrong(8, 1)) {
-        playNotfication();
+        playNotification();
     }
     else if(isWrong(9, 5)) {
-        playNotfication();
+        playNotification();
     }
 
     else if(isWrong(10, 5)) {
-        playNotfication();
+        playNotification();
     }
 
     else if(isWrong(11, 4)) {
-        playNotfication();
+        playNotification();
     }
 
     else if(isWrong(12, 4)) {
-        playNotfication();
+        playNotification();
     }
     else if(isWrong(13, 1)) {
-        playNotfication();
+        playNotification();
     }
     else if(isWrong(14, 3)) {
-        playNotfication();
+        playNotification();
     }
     else if(isWrong(15, 3)) {
-        playNotfication();
+        playNotification();
     }
     else if(isWrong(16, 1)) {
-        playNotfication();
+        playNotification();
     }
 });
 
@@ -119,7 +119,7 @@ function addPoints(questionNumber, answerNumber)
     }
 }
 
-function playNotfication()
+function playNotification()
 {
     humane.log("Грешен отговор!");
 }
