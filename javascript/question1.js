@@ -28,6 +28,10 @@ $('#proceed-button').click(function(){
     if( studentScore >= 4){
         window.location.href = 'question2.html'
     }
+    else
+    {
+        humane.log("Нямате достатъчно точки.");
+    }
 
     sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
     sessionStorage.setItem('squareNum', JSON.stringify(getFigureNum("square")));
@@ -83,6 +87,10 @@ function isWrong(figureName, answerNumber)
     if($('#' + figureName + ' > p').html() != answerNumber)
     {
         return true;
+    }
+    else
+    {
+        return false;
     }
 }
 

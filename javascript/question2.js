@@ -51,9 +51,12 @@ $('#proceed-button').click(function () {
     sessionStorage.setItem('answer-14', JSON.stringify(getBoxNum("answer-14")));
     sessionStorage.setItem('answer-15', JSON.stringify(getBoxNum("answer-15")));
     sessionStorage.setItem('answer-16', JSON.stringify(getBoxNum("answer-16")));
-    //if( studentScore >= 10){
-    window.location = 'question3.html';
-    //}
+    if( studentScore >= 20){
+        window.location = 'question3.html';
+    }
+    else{
+        humane.log("Нямате достатъчно точки.");
+    }
 });
 
 $('#check-button').click(function () {
@@ -151,6 +154,10 @@ function isWrong(questionNumber, answerNumber)
     {
         return true;
     }
+    else
+    {
+        return false;
+    }
 }
 
 function getBoxNum(boxNum) {
@@ -232,6 +239,6 @@ $("#back-button").click(function() {
         answer = sessionStorage.getItem("answer-16");
         $("#answer-16").html(patt.exec(answer));
 
-
+        document.getElementById('points').innerHTML = $.parseJSON(sessionStorage.getItem('studentScore'));
     }
 )();

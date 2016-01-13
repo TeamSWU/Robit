@@ -62,18 +62,37 @@ function getBoxNum(element) {
 }
 
 $('#check-button').click(function () {
-    studentScore = Number(sessionStorage.getItem('studentScore'));
 
-    addPoints(1, '>');
-    addPoints(2, '<');
-    addPoints(3, '<');
-    addPoints(4, '>');
-    addPoints(5, '<');
-    addPoints(6, '>');
-    addPoints(7, '=');
-    addPoints(8, '<');
+    if(isWrong(1, '>')) {
+        playNotification();
+    }
 
-    sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
+    else if(isWrong(2, '<')) {
+        playNotification();
+    }
+
+    else if(isWrong(3, '<')) {
+        playNotification();
+    }
+
+    else if(isWrong(4, '>')) {
+        playNotification();
+    }
+    else if(isWrong(5, '<')) {
+        playNotification()
+    }
+
+    else if(isWrong(6, '>')) {
+        playNotification();
+    }
+
+    else if(isWrong(7, '=')) {
+        playNotification();
+    }
+
+    else if(isWrong(8, '<')) {
+        playNotification();
+    }
 
 });
 
@@ -102,11 +121,39 @@ function addPoints(questionNumber, sign)
         encodedSign = '&gt;';
     }
 
-    if( $('#answer-' + questionNumber + ' > p').html().localeCompare(encodedSign) == 0 );
+    if($('#answer-' + questionNumber + ' > p').html().localeCompare(encodedSign) == 0)
     {
-        alert( $('#answer-' + questionNumber + ' > p').html().localeCompare(encodedSign) == 0);
         studentScore += 2;
     }
+}
+
+function isWrong(questionNumber, sign)
+{
+    var encodedSign = sign;
+
+    if(sign == '<')
+    {
+        encodedSign = '&lt;';
+    }
+
+    if(sign == '>')
+    {
+        encodedSign = '&gt;';
+    }
+
+    if($('#answer-' + questionNumber + ' > p').html().localeCompare(encodedSign) != 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function playNotification()
+{
+    humane.log("Грешен отговор!");
 }
 
 (function ()
@@ -138,5 +185,6 @@ function addPoints(questionNumber, sign)
         answer = sessionStorage.getItem("answer3-8");
         $("#answer-8").html(patt.exec(answer));
 
+        document.getElementById('points').innerHTML = $.parseJSON(sessionStorage.getItem('studentScore'));
     }
 )();
