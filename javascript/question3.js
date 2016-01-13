@@ -18,7 +18,7 @@ $('.drop-sign').on({
 var studentScore;
 
 $('#proceed-button').click(function () {
-    studentScore = localStorage.getItem('studentScore');
+    studentScore = sessionStorage.getItem('studentScore');
 
     if ($('#answer1 > p').html().replace('&lt','<').localeCompare('<')) {
         studentScore += 2;
@@ -54,7 +54,7 @@ $('#check-button').click(function () {
     alert($('#answer1 > p').html());
 });
 
-localStorage.setItem('studentScore', JSON.stringify(studentScore));
+sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
 
 $(document).ready(function(){
     $('#back-button').click(function(){

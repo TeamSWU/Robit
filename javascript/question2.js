@@ -102,7 +102,7 @@ $('#check-button').click(function () {
     }
 });
 
-localStorage.setItem('studentScore', JSON.stringify(studentScore));
+//sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
 
 $(document).ready(function(){
     $('#back-button').click(function(){
@@ -136,6 +136,6 @@ function isWrong(questionNumber, answerNumber)
 }
 (function ()
     {
-        document.getElementById('points').innerHTML = localStorage.getItem('studentScore');
+        document.getElementById('points').innerHTML = $.parseJSON(sessionStorage.getItem('studentScore'));
     }
 )();

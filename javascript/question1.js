@@ -28,6 +28,8 @@ $('#proceed-button').click(function(){
     if( studentScore >= 4){
         window.location.href = 'question2.html'
     }
+
+    sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
 });
 
 $('#check-button').click(function () {
@@ -47,7 +49,7 @@ $('#check-button').click(function () {
         playNotification("triangle", "Аз съм триъгълник, имам 3 страни и 3 ъгъла.",300);
     }
 
-    localStorage.setItem('studentScore', JSON.stringify(studentScore));
+    sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
 });
 function isPlaying(audelem) { return !audelem.paused; }
 
