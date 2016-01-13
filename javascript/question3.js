@@ -62,6 +62,8 @@ function getBoxNum(element) {
 }
 
 $('#check-button').click(function () {
+    studentScore = Number(sessionStorage.getItem('studentScore'));
+
     addPoints(1, '>');
     addPoints(2, '<');
     addPoints(3, '<');
@@ -70,6 +72,9 @@ $('#check-button').click(function () {
     addPoints(6, '>');
     addPoints(7, '=');
     addPoints(8, '<');
+
+    sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
+
 });
 
 $(document).ready(function(){
@@ -97,12 +102,11 @@ function addPoints(questionNumber, sign)
         encodedSign = '&gt;';
     }
 
-    if($('#answer-' + questionNumber + ' > p').html() == encodedSign);
+    if( $('#answer-' + questionNumber + ' > p').html().localeCompare(encodedSign) == 0 );
     {
-
+        alert( $('#answer-' + questionNumber + ' > p').html().localeCompare(encodedSign) == 0);
         studentScore += 2;
     }
-    alert(encodedSign);
 }
 
 (function ()
