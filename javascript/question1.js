@@ -20,62 +20,58 @@ var studentScore;
 $('#proceed-button').click(function(){
     studentScore = 0;
 
-    if ($('#circle > p').html() == 4) {
-        studentScore += 2;
-    }
+    addPints("circle", 4);
+    addPints("square", 4);
+    addPints("rectangle", 4);
+    addPints("triangle", 3);
 
-    if( $('#square > p').html() == 4) {
-        studentScore += 2;
-    }
-
-    if( $('#rectangle > p').html() == 4) {
-        studentScore += 2;
-    }
-    if( $('#triangle > p').html() == 3) {
-        studentScore += 2;
-    }
     if( studentScore >= 4){
         window.location.href = 'question2.html'
     }
 });
 
 $('#check-button').click(function () {
-    if($('#circle > p').html() != 4) {
-        setTimeout(function() {
-            humane.log("Аз съм кръг");
-
-            $("#circle-sound").trigger('load');
-            $("#circle-sound").trigger('play');
-        }, 200);
+    if(isWrong('circle', 4)) {
+        playNotification("circle", "Аз съм кръг", 200);
     }
 
-    else if($('#square > p').html() != 4) {
-        setTimeout(function(){
-            humane.log("Аз съм квадрат, имам 4 равни страни и 4 ъгъла.");
-
-            $("#square-sound").trigger('load');
-            $("#square-sound").trigger('play');
-        }, 700);
+    else if(isWrong('square', 4)) {
+        playNotification("square", "Аз съм квадрат, имам 4 равни страни и 4 ъгъла.",700);
     }
 
-    else if($('#rectangle > p').html() != 4) {
-        setTimeout(function() {
-            humane.log("Аз съм правоъгълник, имам 4 страни и 4 ъгъла.");
-
-            $("#rectangle-sound").trigger('load');
-            $("#rectangle-sound").trigger('play');
-        }, 700)
+    else if(isWrong('rectangle', 4)) {
+        playNotification("rectangle", "Аз съм правоъгълник, имам 4 страни и 4 ъгъла.",700);
     }
 
-    else if($('#triangle > p').html() != 3) {
-        setTimeout(function() {
-            humane.log("Аз съм триъгълник, имам 3 страни и 3 ъгъла.");
-
-            $("#triangle-sound").trigger('load');
-            $("#triangle-sound").trigger('play');
-        }, 300);
+    else if(isWrong('triangle', 3)) {
+        playNotification("triangle", "Аз съм триъгълник, имам 3 страни и 3 ъгъла.",300);
     }
 
     localStorage.setItem('studentScore', JSON.stringify(studentScore));
 });
 function isPlaying(audelem) { return !audelem.paused; }
+
+function addPints(figureName, answerNumber)
+{
+    if ($('#' + figureName + ' > p').html() == answerNumber) {
+        studentScore += 2;
+    }
+}
+
+function playNotification(figureName, message, duration)
+{
+        setTimeout(function() {
+            humane.log(message);
+
+            $("#" + figureName + "-sound").trigger('load');
+            $("#" + figureName + "-sound").trigger('play');
+        }, duration);
+}
+
+function isWrong(figureName, answerNumber)
+{
+    if($('#' + figureName + ' > p').html() != answerNumber)
+    {
+        return true;
+    }
+}
