@@ -17,6 +17,19 @@ $('.drop-sign').on({
 
 var studentScore;
 
+$("#back-button").click(function() {
+    sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
+
+    sessionStorage.setItem('answer3-1', JSON.stringify(getBoxNum("answer-1")));
+    sessionStorage.setItem('answer3-2', JSON.stringify(getBoxNum("answer-2")));
+    sessionStorage.setItem('answer3-3', JSON.stringify(getBoxNum("answer-3")));
+    sessionStorage.setItem('answer3-4', JSON.stringify(getBoxNum("answer-4")));
+    sessionStorage.setItem('answer3-5', JSON.stringify(getBoxNum("answer-5")));
+    sessionStorage.setItem('answer3-6', JSON.stringify(getBoxNum("answer-6")));
+    sessionStorage.setItem('answer3-7', JSON.stringify(getBoxNum("answer-7")));
+    sessionStorage.setItem('answer3-8', JSON.stringify(getBoxNum("answer-8")));
+});
+
 $('#proceed-button').click(function () {
     studentScore = Number(sessionStorage.getItem('studentScore'));
 
@@ -33,7 +46,20 @@ $('#proceed-button').click(function () {
     //window.location = 'question3.html';
     //}
     sessionStorage.setItem('studentScore', JSON.stringify(studentScore));
+
+    sessionStorage.setItem('answer3-1', JSON.stringify(getBoxNum("answer-1")));
+    sessionStorage.setItem('answer3-2', JSON.stringify(getBoxNum("answer-2")));
+    sessionStorage.setItem('answer3-3', JSON.stringify(getBoxNum("answer-3")));
+    sessionStorage.setItem('answer3-4', JSON.stringify(getBoxNum("answer-4")));
+    sessionStorage.setItem('answer3-5', JSON.stringify(getBoxNum("answer-5")));
+    sessionStorage.setItem('answer3-6', JSON.stringify(getBoxNum("answer-6")));
+    sessionStorage.setItem('answer3-7', JSON.stringify(getBoxNum("answer-7")));
+    sessionStorage.setItem('answer3-8', JSON.stringify(getBoxNum("answer-8")));
 });
+
+function getBoxNum(element) {
+    return $("#" + element).html();
+}
 
 $('#check-button').click(function () {
     addPoints(1, '>');
@@ -57,7 +83,7 @@ function isPlaying(audelem) {
     return !audelem.paused;
 }
 
-addPoints(questionNumber, sign)
+function addPoints(questionNumber, sign)
 {
     var encodedSign = sign;
 
@@ -81,6 +107,32 @@ addPoints(questionNumber, sign)
 
 (function ()
     {
-        document.getElementById('points').innerHTML = $.parseJSON(sessionStorage.getItem('studentScore'));
+        var patt = new RegExp("<\s*p[^>]*>([^<]*)<\s*\/\s*p\s*>");
+
+        var answer;
+        answer = sessionStorage.getItem("answer3-1");
+        $("#answer-1").html(patt.exec(answer));
+
+        answer = sessionStorage.getItem("answer3-2");
+        $("#answer-2").html(patt.exec(answer));
+
+        answer = sessionStorage.getItem("answer3-3");
+        $("#answer-3").html(patt.exec(answer));
+
+        answer = sessionStorage.getItem("answer3-4");
+        $("#answer-4").html(patt.exec(answer));
+
+        answer = sessionStorage.getItem("answer3-5");
+        $("#answer-5").html(patt.exec(answer));
+
+        answer = sessionStorage.getItem("answer3-6");
+        $("#answer-6").html(patt.exec(answer));
+
+        answer = sessionStorage.getItem("answer3-7");
+        $("#answer-7").html(patt.exec(answer));
+
+        answer = sessionStorage.getItem("answer3-8");
+        $("#answer-8").html(patt.exec(answer));
+
     }
 )();
