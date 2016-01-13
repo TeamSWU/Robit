@@ -40,7 +40,7 @@ $('#proceed-button').click(function(){
 });
 
 $('#check-button').click(function () {
- if($('#circle > p').html() != 4) {
+    if($('#circle > p').html() != 4) {
         setTimeout(function() {
             humane.log("Аз съм кръг");
 
